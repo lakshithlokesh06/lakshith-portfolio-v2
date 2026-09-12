@@ -37,7 +37,7 @@ export function Work() {
             </h3>
             <p>Selected projects and their stories will live here.</p>
           </div>
-          <span className="outline-label">Coming in Phase 2</span>
+          <span className="outline-label">Project stories coming soon</span>
         </div>
       )}
     </Section>

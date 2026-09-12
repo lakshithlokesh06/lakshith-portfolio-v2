@@ -7,7 +7,7 @@ export const portfolio: Portfolio = {
     status: "MSc Data Science",
     disciplines: ["Data Science", "Machine Learning", "Data Analytics"],
     introduction:
-      "I build data-driven systems, machine-learning applications, and analytics platforms — turning complex questions into useful, intelligent software.",
+      "I build data-driven applications, ML systems, and analytics platforms — connecting data with useful, intelligent software.",
     about:
       "I’m Lakshith, a postgraduate Data Science student based in Bengaluru. My interests sit where data, machine learning, and software meet. I enjoy connecting analytical thinking with the practical work of building applications.",
   },
