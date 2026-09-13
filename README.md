@@ -1,6 +1,6 @@
 # Lakshith S Lokesh — Interactive Data Lab
 
-An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 3 adds the Project Observatory: six curated projects with inline technical storytelling. The Data Constellation hero and Phase 1 design foundation remain intact; About, Skills, Journey, and Contact are still in development.
+An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 4 adds an editorial About profile and the interactive Learning Trajectory. The Data Constellation and six-project Observatory remain intact; Skills and Contact remain foundations for later development.
 
 ## Stack
 
@@ -38,15 +38,16 @@ src/
     layout/             Sticky navigation, mobile dialog, footer
     sections/           Hero and individual homepage sections
     projects/           Observatory, project rows, notes, previews, architecture
+    journey/            Interactive stage map, SVG path, server-rendered context
     ui/                 Actions, social links, section headings, reveals
     visuals/            Interactive constellation, native node buttons, SVG edges
   data/                 Central personal content and typed constellation graph
   hooks/                Section/project visibility observers and pointer proximity
   lib/                  Shared motion settings
-  types/                Portfolio, project, and constellation data contracts
+  types/                Portfolio, education/journey, project, and constellation contracts
 ```
 
-The page and section content use Server Components. Client code is limited to navigation, section tracking, reusable Framer Motion reveals, constellation interaction, and project selection/expansion. Native anchor navigation and a native modal dialog provide keyboard navigation, Escape dismissal, focus containment/restoration, and mobile scroll management.
+The page and section content use Server Components. Client code is limited to navigation, section tracking, reusable Framer Motion reveals, constellation interaction, project selection/expansion, and journey stage previews/selection. Native anchor navigation and a native modal dialog provide keyboard navigation, Escape dismissal, focus containment/restoration, and mobile scroll management.
 
 ## Visual system
 
@@ -56,7 +57,7 @@ Small one-time entrance transitions respect reduced-motion preferences. The hero
 
 ## Content and current phase
 
-Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects are defined in `src/data/projects.ts`; skill technology lists remain empty; the skill rows describe broad areas rather than claiming proficiency. Only known postgraduate study details are shown. Add institution names, dates, experience, and contact details only when supplied.
+Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects are defined in `src/data/projects.ts`; skill technology lists remain empty; the skill rows describe broad areas rather than claiming proficiency. Verified education records now include PUC, BCA, and current MSc study. Add institution names, dates, experience, and contact details only when supplied.
 
 Phase 1 includes the application shell, responsive navigation, initial hero, reusable styles and motion, and structural sections for Work, About, Skills, Journey, and Contact. No fabricated projects, statistics, employment, awards, or social links are included.
 
@@ -89,6 +90,17 @@ Six supplied projects form an editorial index rather than a card grid. AI Smart 
 
 No Phase 3 dependencies were added. Missing GitHub/live URLs produce no action; verified external URLs open in a new tab with accessible labels and `noopener noreferrer`. A future internal case-study path is supported by the model but no project routes are created.
 
+## Phase 4: About + Learning Trajectory
+
+About uses an asymmetric narrative and supporting profile facts, an understated academic strip, and a technical statement leading directly into Journey. Skills follows Journey as an unchanged placeholder. The text describes a postgraduate student and practical project work, with no employment or expertise claims.
+
+- `src/data/education.ts` is the shared typed source for PUC, BCA, and MSc facts. PUC is CSBA at St. Joseph’s Pre-University College, 2021–2023; its four subjects are preserved. BCA Data Analytics at Jain includes only the supplied **8.172 CGPA**, without conversions or an invented date range. MSc at Chanakya University is current, starting in 2026.
+- `src/data/profile.ts` contains the editorial narrative and references education records. `src/data/journey.ts` defines six conceptual stages, transitions, focus areas, education IDs, project IDs, and display positions. The path is a learning narrative; undated project stages may overlap and are not represented as a dated chronology.
+- Journey references resolve project IDs through `src/data/projects.ts`. Project titles and destinations are not copied into the journey configuration. Links scroll to existing Observatory rows without changing project behavior.
+- On desktop a custom SVG joins the stages along a changing path. Increasing small branches suggest conceptual complexity, not measured proficiency. Smaller screens use a readable, numbered stage composition with simplified connectors instead of scaling down the SVG.
+- Hover/focus previews context; click, tap, Enter, or Space persists selection. Leaving a preview restores the selected context. A dedicated link moves keyboard focus into the selected stage’s details. Buttons expose pressed state, panels have accessible names, and selection is announced politely.
+- Context and About content render on the server; only stage interaction and the one-shot entrance observer are client-side. The SVG is decorative. With reduced motion the trajectory renders immediately, context transitions are removed, and selection remains functional. No per-frame loops, physics, or dependencies were added.
+
 ## Future development
 
-Phase 4 can expand the remaining personal sections, add verified project links and real screenshots, and develop full case-study routes when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.
+Phase 5 can expand Skills and Contact, add verified project links and real screenshots, and develop full case-study routes when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.

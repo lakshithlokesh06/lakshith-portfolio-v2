@@ -398,29 +398,6 @@ main:focus {
   margin-top: 16px;
 }
 
-.about-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12%;
-  padding-left: calc((100% - 64px) / 3 + 32px);
-}
-.about-copy {
-  font-size: 16px;
-  line-height: 1.95;
-  color: var(--muted);
-}
-.about-note {
-  padding-left: 26px;
-  border-left: 1px solid var(--line);
-}
-.about-note p:last-child {
-  font-size: 17px;
-  line-height: 1.8;
-  margin-top: 20px;
-}
-.about-note p span {
-  color: var(--accent);
-}
 .skill-row {
   display: grid;
   grid-template-columns: 45px 1.1fr 1fr 24px;
@@ -453,31 +430,7 @@ main:focus {
   line-height: 1.8;
   margin-top: 21px;
 }
-.journey-entry {
-  display: grid;
-  grid-template-columns: 10px 1fr 2fr auto;
-  gap: 25px;
-  align-items: start;
-  border-block: 1px solid var(--line);
-  padding: 30px 0;
-}
-.timeline-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  margin-top: 6px;
-}
-.journey-entry h3 {
-  font-size: 23px;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-}
-.journey-entry div p {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 10px;
-}
+
 .contact-section {
   position: relative;
 }
@@ -556,19 +509,9 @@ main:focus {
     gap: 16px;
   }
 
-  .about-body {
-    padding-left: 0;
-    gap: 12%;
-  }
   .contact-body {
     padding-left: 0;
     grid-template-columns: 1fr 1fr 70px;
-  }
-  .journey-entry {
-    grid-template-columns: 10px 0.8fr 1.5fr;
-  }
-  .journey-entry > span:last-child {
-    grid-column: 3;
   }
 }
 @media (max-width: 899px) {
@@ -682,20 +625,7 @@ main:focus {
   .section-heading {
     margin-bottom: 28px;
   }
-  .about-body {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .about-copy {
-    font-size: 15px;
-  }
-  .about-note {
-    padding-left: 20px;
-  }
-  .about-note p:last-child {
-    font-size: 16px;
-    margin-top: 12px;
-  }
+
   .skill-row {
     grid-template-columns: 22px 1fr 15px;
     gap: 12px;
@@ -709,17 +639,7 @@ main:focus {
     grid-column: 3;
     grid-row: 1;
   }
-  .journey-entry {
-    grid-template-columns: 8px 1fr;
-    gap: 15px;
-  }
-  .journey-entry div,
-  .journey-entry > span:last-child {
-    grid-column: 2;
-  }
-  .journey-entry h3 {
-    font-size: 21px;
-  }
+
   .contact-body {
     grid-template-columns: 1fr 44px;
     gap: 24px;

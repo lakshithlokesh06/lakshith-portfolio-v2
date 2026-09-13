@@ -13,14 +13,6 @@ export interface SkillGroup {
   description: string;
   technologies: string[];
 }
-export interface JourneyEntry {
-  id: string;
-  title: string;
-  kind: "education" | "experience";
-  organization?: string;
-  period?: string;
-  description: string;
-}
 export interface Portfolio {
   person: {
     name: string;
@@ -29,10 +21,8 @@ export interface Portfolio {
     status: string;
     disciplines: string[];
     introduction: string;
-    about: string;
   };
   navigation: NavigationItem[];
   socials: SocialLink[];
   skills: SkillGroup[];
-  journey: JourneyEntry[];
 }

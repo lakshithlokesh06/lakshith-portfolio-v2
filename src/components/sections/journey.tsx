@@ -1,27 +1,26 @@
-import { portfolio, sectionContent } from "@/data/portfolio";
+import { journeyStages, journeyCopy, initialJourneyId } from "@/data/journey";
 import { Section } from "@/components/ui/section";
+import { JourneyMap } from "@/components/journey/journey-map";
+import { JourneyContext } from "@/components/journey/journey-context";
+import "@/components/journey/trajectory.css";
 export function Journey() {
   return (
-    <Section id="journey" {...sectionContent.journey}>
-      <div className="journey-list">
-        {portfolio.journey.map((entry) => (
-          <article className="journey-entry" key={entry.id}>
-            <span className="timeline-dot" />
-            <p className="eyebrow">{entry.kind}</p>
-            <div>
-              <h3>{entry.title}</h3>
-              <p>{entry.description}</p>
-              {entry.organization && <p>{entry.organization}</p>}
-            </div>
-            <span className="eyebrow">
-              {entry.period ?? "Learning & building"}
-            </span>
-          </article>
+    <Section
+      id="journey"
+      {...journeyCopy.heading}
+      className="trajectory-section"
+    >
+      <JourneyMap
+        stages={journeyStages}
+        contexts={journeyStages.map((stage) => (
+          <JourneyContext key={stage.id} stage={stage} />
         ))}
-      </div>
-      <p className="section-note">
-        A fuller story of the learning along the way is coming soon.
-      </p>
+        initialId={initialJourneyId}
+        title={journeyCopy.title}
+        instructions={journeyCopy.instructions}
+        mobileInstructions={journeyCopy.mobileInstructions}
+        note={journeyCopy.note}
+      />
     </Section>
   );
 }

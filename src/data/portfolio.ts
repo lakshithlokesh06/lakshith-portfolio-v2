@@ -8,8 +8,6 @@ export const portfolio: Portfolio = {
     disciplines: ["Data Science", "Machine Learning", "Data Analytics"],
     introduction:
       "I build data-driven applications, ML systems, and analytics platforms — connecting data with useful, intelligent software.",
-    about:
-      "I’m Lakshith, a postgraduate Data Science student based in Bengaluru. My interests sit where data, machine learning, and software meet. I enjoy connecting analytical thinking with the practical work of building applications.",
   },
   navigation: [
     { id: "home", label: "Home" },
@@ -42,30 +40,12 @@ export const portfolio: Portfolio = {
       technologies: [],
     },
   ],
-  journey: [
-    {
-      id: "msc",
-      title: "MSc Data Science",
-      kind: "education",
-      description: "Postgraduate study · Bengaluru",
-    },
-  ],
 };
 export const sectionContent = {
-  about: {
-    index: "02",
-    eyebrow: "The person behind the work",
-    title: "Curiosity, with a practical side.",
-  },
   skills: {
-    index: "03",
+    index: "04",
     eyebrow: "Technical landscape",
     title: "Across the data lifecycle.",
-  },
-  journey: {
-    index: "04",
-    eyebrow: "Journey",
-    title: "Always a work in progress.",
   },
   contact: {
     index: "05",
