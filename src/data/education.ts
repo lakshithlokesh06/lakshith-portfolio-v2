@@ -32,6 +32,7 @@ export const education: Record<EducationId, Education> = {
     shortProgram: "MSc — Data Science",
     location: "Bengaluru",
     startYear: 2026,
+    endYear: 2028,
     status: "Current",
   },
 };
