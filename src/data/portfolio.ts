@@ -23,7 +23,6 @@ export const portfolio: Portfolio = {
     { label: "GitHub", url: null },
     { label: "LinkedIn", url: null },
   ],
-  projects: [],
   skills: [
     {
       title: "Data & analytics",
@@ -53,13 +52,6 @@ export const portfolio: Portfolio = {
   ],
 };
 export const sectionContent = {
-  work: {
-    index: "01",
-    eyebrow: "Selected work",
-    title: "Questions into systems.",
-    description:
-      "A space for the projects, decisions, and experiments behind the work.",
-  },
   about: {
     index: "02",
     eyebrow: "The person behind the work",

@@ -1,6 +1,6 @@
 # Lakshith S Lokesh — Interactive Data Lab
 
-An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 2 adds the interactive Data Constellation hero to the Phase 1 foundation; project stories and the remaining section experiences are still in development.
+An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 3 adds the Project Observatory: six curated projects with inline technical storytelling. The Data Constellation hero and Phase 1 design foundation remain intact; About, Skills, Journey, and Contact are still in development.
 
 ## Stack
 
@@ -37,15 +37,16 @@ src/
   components/
     layout/             Sticky navigation, mobile dialog, footer
     sections/           Hero and individual homepage sections
+    projects/           Observatory, project rows, notes, previews, architecture
     ui/                 Actions, social links, section headings, reveals
     visuals/            Interactive constellation, native node buttons, SVG edges
   data/                 Central personal content and typed constellation graph
-  hooks/                Active-section observer and pointer proximity
+  hooks/                Section/project visibility observers and pointer proximity
   lib/                  Shared motion settings
-  types/                Portfolio and constellation data contracts
+  types/                Portfolio, project, and constellation data contracts
 ```
 
-The page and section content use Server Components. Client code is limited to navigation, section tracking, reusable Framer Motion reveals, and constellation interaction. Native anchor navigation and a native modal dialog provide keyboard navigation, Escape dismissal, focus containment/restoration, and mobile scroll management.
+The page and section content use Server Components. Client code is limited to navigation, section tracking, reusable Framer Motion reveals, constellation interaction, and project selection/expansion. Native anchor navigation and a native modal dialog provide keyboard navigation, Escape dismissal, focus containment/restoration, and mobile scroll management.
 
 ## Visual system
 
@@ -55,7 +56,7 @@ Small one-time entrance transitions respect reduced-motion preferences. The hero
 
 ## Content and current phase
 
-Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects and technology lists are empty; the skill rows describe broad areas rather than claiming proficiency. Only known postgraduate study details are shown. Add institution names, dates, experience, and contact details only when supplied.
+Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects are defined in `src/data/projects.ts`; skill technology lists remain empty; the skill rows describe broad areas rather than claiming proficiency. Only known postgraduate study details are shown. Add institution names, dates, experience, and contact details only when supplied.
 
 Phase 1 includes the application shell, responsive navigation, initial hero, reusable styles and motion, and structural sections for Work, About, Skills, Journey, and Contact. No fabricated projects, statistics, employment, awards, or social links are included.
 
@@ -71,6 +72,23 @@ Phase 1 includes the application shell, responsive navigation, initial hero, reu
 
 No dependencies were added for Phase 2. The existing CTA destinations and safe social-link placeholders are preserved.
 
+## Phase 3: Project Observatory
+
+Six supplied projects form an editorial index rather than a card grid. AI Smart Travel Planner receives flagship space and an inline conceptual architecture diagram. The other projects cover dataset analysis, job-market exploration, career recommendations, commerce analytics/forecasting, and academic prediction.
+
+`src/types/project.ts` defines the project contract: identity, classification, concise story notes, focus, full/summary stacks, functionality, optional deployment status and verified links, and preview configuration. Project data lives in `src/data/projects.ts`, separate from personal/navigation configuration so navigation does not load the project stories. Unknown details are omitted, including the Job Market stack. Live application status is only shown for the four projects confirmed by the brief; URLs are not fabricated.
+
+- Select using a project title, preview button, or index link. Selection persists until another project is selected; hover/focus temporarily emphasizes a row without replacing selection.
+- Explore Project toggles inline notes. Only one detail region is open; choosing another project closes the previous notes. Native buttons expose `aria-pressed` and `aria-expanded`; hidden regions are removed from keyboard navigation. Focus stays on the disclosure button when toggling.
+- The sticky horizontal index scrolls with native anchors. A thin line and `aria-current` track the visible project using IntersectionObserver; cyan index numbers indicate persistent selection. Scrolling never changes the selected project.
+- At narrow widths, rows stack, the index becomes six compact numbered targets, metadata wraps, and architecture uses a vertical interface/API flow followed by two branches. There is no viewport locking or custom scroll logic.
+- Previews are small CSS/SVG compositions using unitless illustrative shapes. Their visible captions explicitly distinguish them from project results. Decorative SVG content is excluded from assistive technology; project meaning is available as text.
+- `ProjectVisual` can render a supplied screenshot through Next Image when `visual.screenshot` includes `src`, `alt`, `width`, and `height`. No images are downloaded or generated. Add remote-image configuration only for a verified image host if needed later.
+- The flagship diagram branches from the API into planning orchestration and SQLAlchemy/PostgreSQL persistence; it does not present storage as the last agent step. It is labeled as a conceptual architecture map.
+- Static preview and detail components render on the server and are passed into the small client interaction shell. CSS transitions settle immediately after interaction, honor reduced motion, and use no animation loops or scroll handlers.
+
+No Phase 3 dependencies were added. Missing GitHub/live URLs produce no action; verified external URLs open in a new tab with accessible labels and `noopener noreferrer`. A future internal case-study path is supported by the model but no project routes are created.
+
 ## Future development
 
-Later phases can add verified flagship projects and project storytelling, expand the technical stack and journey, and activate contact links. No project case studies, custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.
+Phase 4 can expand the remaining personal sections, add verified project links and real screenshots, and develop full case-study routes when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.

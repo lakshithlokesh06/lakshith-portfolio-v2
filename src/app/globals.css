@@ -397,71 +397,7 @@ main:focus {
   max-width: 460px;
   margin-top: 16px;
 }
-.work-placeholder {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1fr 1.7fr auto;
-  align-items: center;
-  gap: 35px;
-  padding: 48px;
-}
-.work-placeholder h3 {
-  font-size: 26px;
-  line-height: 1.4;
-  letter-spacing: -0.03em;
-  font-weight: 400;
-  margin: 15px 0;
-}
-.work-placeholder p:not(.eyebrow) {
-  font-size: 12px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-.outline-label {
-  align-self: start;
-  border: 1px solid #455157;
-  padding: 7px 10px;
-  font-family: var(--font-mono), monospace;
-  font-size: 9px;
-  color: var(--muted);
-  white-space: nowrap;
-}
-.work-glyph {
-  height: 130px;
-  max-width: 180px;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  border-bottom: 1px solid #475359;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 31px,
-    #ffffff05 32px
-  );
-}
-.work-glyph span {
-  flex: 1;
-  max-width: 25px;
-  background: #40555b;
-  height: 25%;
-}
-.work-glyph span:nth-child(2) {
-  height: 45%;
-}
-.work-glyph span:nth-child(3) {
-  height: 35%;
-  background: #699097;
-}
-.work-glyph span:nth-child(4) {
-  height: 75%;
-  background: #86b4b9;
-}
-.work-glyph span:nth-child(5) {
-  height: 95%;
-  background: var(--accent);
-}
+
 .about-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -589,10 +525,7 @@ main:focus {
   gap: 25px;
   align-items: center;
 }
-.project-list article {
-  padding: 30px 0;
-  border-block: 1px solid var(--line);
-}
+
 @media (min-width: 1600px) {
   .hero-layout {
     padding-block: 100px;
@@ -622,15 +555,7 @@ main:focus {
   .social-links {
     gap: 16px;
   }
-  .work-placeholder {
-    padding: 32px;
-    gap: 25px;
-    grid-template-columns: 0.7fr 1.5fr;
-  }
-  .outline-label {
-    grid-column: 2;
-    justify-self: start;
-  }
+
   .about-body {
     padding-left: 0;
     gap: 12%;
@@ -695,9 +620,6 @@ main:focus {
   .hero-bottom .eyebrow {
     font-size: 9px;
   }
-  .work-placeholder h3 {
-    font-size: 24px;
-  }
 }
 @media (max-width: 540px) {
   .page-container,
@@ -756,21 +678,7 @@ main:focus {
   .scroll-link {
     font-size: 9px;
   }
-  .work-placeholder {
-    padding: 25px;
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  .work-glyph {
-    height: 75px;
-    width: 110px;
-  }
-  .work-placeholder h3 {
-    font-size: 22px;
-  }
-  .outline-label {
-    grid-column: auto;
-  }
+
   .section-heading {
     margin-bottom: 28px;
   }
