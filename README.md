@@ -1,6 +1,6 @@
 # Lakshith S Lokesh — Interactive Data Lab
 
-An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 4 adds an editorial About profile and the interactive Learning Trajectory. The Data Constellation and six-project Observatory remain intact; Skills and Contact remain foundations for later development.
+An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 5 adds the Technical Ecosystem / Capability Matrix: workflow-based tools linked to recorded project usage. The Data Constellation, Project Observatory, About profile, and Learning Trajectory remain intact. Contact is still a foundation for later development.
 
 ## Stack
 
@@ -39,6 +39,7 @@ src/
     sections/           Hero and individual homepage sections
     projects/           Observatory, project rows, notes, previews, architecture
     journey/            Interactive stage map, SVG path, server-rendered context
+    skills/             Workflow rail, capability matrix, usage context
     ui/                 Actions, social links, section headings, reveals
     visuals/            Interactive constellation, native node buttons, SVG edges
   data/                 Central personal content and typed constellation graph
@@ -47,7 +48,7 @@ src/
   types/                Portfolio, education/journey, project, and constellation contracts
 ```
 
-The page and section content use Server Components. Client code is limited to navigation, section tracking, reusable Framer Motion reveals, constellation interaction, project selection/expansion, and journey stage previews/selection. Native anchor navigation and a native modal dialog provide keyboard navigation, Escape dismissal, focus containment/restoration, and mobile scroll management.
+The page and section content use Server Components. Client code is limited to navigation, section tracking, reusable Framer Motion reveals, constellation interaction, project selection/expansion, journey stage previews/selection, and capability filtering/selection. Native anchor navigation and a native modal dialog provide keyboard navigation, Escape dismissal, focus containment/restoration, and mobile scroll management.
 
 ## Visual system
 
@@ -57,7 +58,7 @@ Small one-time entrance transitions respect reduced-motion preferences. The hero
 
 ## Content and current phase
 
-Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects are defined in `src/data/projects.ts`; skill technology lists remain empty; the skill rows describe broad areas rather than claiming proficiency. Verified education records now include PUC, BCA, and current MSc study. Add institution names, dates, experience, and contact details only when supplied.
+Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects are defined in `src/data/projects.ts`; capability definitions live in `src/data/skills.ts` and show workflow roles rather than proficiency. Verified education records now include PUC, BCA, and current MSc study. Add institution names, dates, experience, and contact details only when supplied.
 
 Phase 1 includes the application shell, responsive navigation, initial hero, reusable styles and motion, and structural sections for Work, About, Skills, Journey, and Contact. No fabricated projects, statistics, employment, awards, or social links are included.
 
@@ -101,6 +102,18 @@ About uses an asymmetric narrative and supporting profile facts, an understated 
 - Hover/focus previews context; click, tap, Enter, or Space persists selection. Leaving a preview restores the selected context. A dedicated link moves keyboard focus into the selected stage’s details. Buttons expose pressed state, panels have accessible names, and selection is announced politely.
 - Context and About content render on the server; only stage interaction and the one-shot entrance observer are client-side. The SVG is decorative. With reduced motion the trajectory renders immediately, context transitions are removed, and selection remains functional. No per-frame loops, physics, or dependencies were added.
 
+## Phase 5: Skills / Technical Ecosystem
+
+The Capability Matrix presents 19 supported tools as part of Data, Analyze, Model, Build, and Ship. Typographic columns show each tool once in a primary placement; multi-stage metadata expresses where else it participates. Active connectors trace the selected tool’s workflow. Ship includes report delivery, persistence, and repository workflow; it does not imply an unverified hosting platform.
+
+- `src/types/skills.ts` defines stage, group, role, usage-purpose, exact project-technology aliases, and optional repository evidence. `src/data/skills.ts` replaces the old placeholder skills config. Broad Data Science positioning remains current-study context, rendered from the shared MSc record as **2026–2028**.
+- `src/lib/capabilities.ts` resolves project associations from the existing project technology arrays on the server. Matching normalizes case and whitespace but uses exact tokens, so SQL is never inferred from PostgreSQL or SQLite. OpenAI APIs explicitly maps to the recorded OpenAI technology. No project titles or project-to-tool mapping lists are duplicated in skill configuration.
+- Core means two or more matching listed projects, Used means one, and Workflow identifies repository-supported tooling without recorded project associations. Python matches five projects; Pandas two; Scikit-learn and Streamlit three each. Git/GitHub are supported by this repository, with zero inferred matches in the six project records. The UI explains that distinction.
+- ALL is the default stage filter. Stage selection narrows available tools while preserving their primary placements. If the selected tool belongs to the new stage it stays selected; otherwise the first matching tool is selected. Hover/focus temporarily previews another tool; click, tap, Enter, or Space persists selection.
+- A context panel exposes role, uses, workflow, derived usage counts, and project links. Six small marks represent the actual six project records; filled marks are real matches. Project links use existing Observatory anchors and do not duplicate project detail UI.
+- Mobile uses a two-row stage selector, two-column grouped tool lists, and stacked context. Technical items and stage buttons meet 44px targets. Pressed states, focus outlines, polite selection announcements, and a link into the selected context support keyboard use.
+- Reduced motion removes connector drawing and CSS transitions; filtering and selection remain intact. There are no per-frame listeners, idle loops, canvas, logos, chart packages, or new dependencies. The existing Framer Motion installation remains unchanged; Anime.js is not added.
+
 ## Future development
 
-Phase 5 can expand Skills and Contact, add verified project links and real screenshots, and develop full case-study routes when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.
+Phase 6 can expand Contact, add verified project links and real screenshots, and develop full case-study routes when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.

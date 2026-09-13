@@ -8,11 +8,6 @@ export interface SocialLink {
   label: "GitHub" | "LinkedIn";
   url: `https://${string}` | null;
 }
-export interface SkillGroup {
-  title: string;
-  description: string;
-  technologies: string[];
-}
 export interface Portfolio {
   person: {
     name: string;
@@ -24,5 +19,4 @@ export interface Portfolio {
   };
   navigation: NavigationItem[];
   socials: SocialLink[];
-  skills: SkillGroup[];
 }

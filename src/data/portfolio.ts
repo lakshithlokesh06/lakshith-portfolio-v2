@@ -21,32 +21,8 @@ export const portfolio: Portfolio = {
     { label: "GitHub", url: null },
     { label: "LinkedIn", url: null },
   ],
-  skills: [
-    {
-      title: "Data & analytics",
-      description:
-        "Exploring questions, finding patterns, and communicating what matters.",
-      technologies: [],
-    },
-    {
-      title: "Machine learning & AI",
-      description: "Connecting data and models to practical applications.",
-      technologies: [],
-    },
-    {
-      title: "Software & systems",
-      description:
-        "Bringing analysis to life through full-stack technical projects.",
-      technologies: [],
-    },
-  ],
 };
 export const sectionContent = {
-  skills: {
-    index: "04",
-    eyebrow: "Technical landscape",
-    title: "Across the data lifecycle.",
-  },
   contact: {
     index: "05",
     eyebrow: "Contact",

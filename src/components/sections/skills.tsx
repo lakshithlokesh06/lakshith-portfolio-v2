@@ -1,23 +1,22 @@
-import { portfolio, sectionContent } from "@/data/portfolio";
 import { Section } from "@/components/ui/section";
+import { CapabilityMatrix } from "@/components/skills/capability-matrix";
+import { skills, workflowStages, capabilityCopy } from "@/data/skills";
+import { projects } from "@/data/projects";
+import { education, educationPeriod } from "@/data/education";
+import { resolveCapabilities } from "@/lib/capabilities";
+import "@/components/skills/capabilities.css";
 export function Skills() {
   return (
-    <Section id="skills" {...sectionContent.skills}>
-      <div className="skills-list">
-        {portfolio.skills.map((group, i) => (
-          <div className="skill-row" key={group.title}>
-            <span className="eyebrow">0{i + 1}</span>
-            <h3>{group.title}</h3>
-            <p>{group.description}</p>
-            <span aria-hidden="true" className="skill-cross">
-              +
-            </span>
-          </div>
-        ))}
-      </div>
-      <p className="section-note">
-        Tools and project context will be added as the portfolio develops.
-      </p>
+    <Section id="skills" {...capabilityCopy.heading}>
+      <CapabilityMatrix
+        skills={resolveCapabilities(skills, projects)}
+        stages={workflowStages}
+        projectIds={projects.map((project) => project.id)}
+        title={capabilityCopy.title}
+        instructions={capabilityCopy.instructions}
+        legend={capabilityCopy.legend}
+        domain={`${education.msc.program} · ${educationPeriod(education.msc)}`}
+      />
     </Section>
   );
 }
