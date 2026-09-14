@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Project } from "@/types/project";
 import { ArrowDownRight, Minus, Plus } from "lucide-react";
@@ -72,6 +73,15 @@ export function ProjectRow({
           ↗ {project.functionality[0]}
         </p>
         <div className="project-actions">
+          {project.caseStudy && (
+            <Link
+              className="action action-text"
+              href={project.caseStudy}
+              aria-label={`View Case Study: ${project.title}`}
+            >
+              View Case Study <ArrowDownRight size={16} aria-hidden="true" />
+            </Link>
+          )}
           <button
             type="button"
             className="project-expand action action-text"

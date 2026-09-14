@@ -4,6 +4,7 @@ import type { Project } from "@/types/project";
 export const projects: Project[] = [
   {
     id: "ai-travel-planner",
+    caseStudy: "/projects/ai-smart-travel-planner",
     index: 1,
     title: "AI Smart Travel Planner",
     shortTitle: "Travel Planner",
@@ -46,6 +47,7 @@ export const projects: Project[] = [
   },
   {
     id: "autoinsight",
+    caseStudy: "/projects/autoinsight",
     index: 2,
     title: "AutoInsight — Intelligent Dataset Analyzer",
     shortTitle: "AutoInsight",
@@ -81,6 +83,7 @@ export const projects: Project[] = [
   },
   {
     id: "job-market",
+    caseStudy: "/projects/job-market-analytics",
     index: 3,
     title: "Job Market Analytics Portal",
     shortTitle: "Job Market",
@@ -103,6 +106,7 @@ export const projects: Project[] = [
   },
   {
     id: "career-recommendation",
+    caseStudy: "/projects/career-recommendation-system",
     index: 4,
     title: "Career Recommendation System",
     shortTitle: "Career Paths",
@@ -132,6 +136,7 @@ export const projects: Project[] = [
   },
   {
     id: "commerce-insights",
+    caseStudy: "/projects/commerce-data-insights",
     index: 5,
     title: "Commerce Data Insights Dashboard",
     shortTitle: "Commerce Insights",
@@ -155,6 +160,7 @@ export const projects: Project[] = [
   },
   {
     id: "student-score",
+    caseStudy: "/projects/student-score-predictor",
     index: 6,
     title: "Student Score Predictor",
     shortTitle: "Score Predictor",

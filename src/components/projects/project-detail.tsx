@@ -6,7 +6,6 @@ export function ProjectDetail({ project }: { project: Project }) {
   const links = [
     { url: project.github, label: "GitHub", external: true },
     { url: project.live, label: "Live Demo", external: true },
-    { url: project.caseStudy, label: "Case study", external: false },
   ].filter((link) => link.url);
   return (
     <div className="project-detail-content">

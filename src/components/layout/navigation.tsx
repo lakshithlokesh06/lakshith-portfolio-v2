@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 import { useActiveSection } from "@/hooks/use-active-section";
 export function Navigation() {
@@ -8,6 +10,7 @@ export function Navigation() {
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const active = useActiveSection();
+  const isHome = usePathname() === "/";
   useEffect(() => {
     const element = dialog.current;
     const triggerElement = trigger.current;
@@ -30,25 +33,27 @@ export function Navigation() {
   return (
     <header className="site-header">
       <div className="nav-inner">
-        <a
+        <Link
           className="wordmark"
-          href="#home"
+          href="/#home"
           aria-label={`${portfolio.person.name}, home`}
         >
           <span className="brand-mark" aria-hidden="true">
             l<span>.</span>
           </span>
           {portfolio.person.name}
-        </a>
+        </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {portfolio.navigation.map((item) => (
-            <a
+            <Link
               key={item.id}
-              href={`#${item.id}`}
-              aria-current={active === item.id ? "location" : undefined}
+              href={`/#${item.id}`}
+              aria-current={
+                isHome && active === item.id ? "location" : undefined
+              }
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <button
@@ -99,16 +104,18 @@ export function Navigation() {
         </div>
         <nav aria-label="Mobile navigation">
           {portfolio.navigation.map((item, i) => (
-            <a
+            <Link
               key={item.id}
-              href={`#${item.id}`}
-              aria-current={active === item.id ? "location" : undefined}
+              href={`/#${item.id}`}
+              aria-current={
+                isHome && active === item.id ? "location" : undefined
+              }
               onClick={() => setOpen(false)}
             >
               <span className="eyebrow">0{i + 1}</span>
               {item.label}
               <ArrowUpRight size={22} />
-            </a>
+            </Link>
           ))}
         </nav>
         <p className="menu-status">

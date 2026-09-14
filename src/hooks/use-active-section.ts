@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { portfolio } from "@/data/portfolio";
 import type { SectionId } from "@/types/portfolio";
 export function useActiveSection() {
+  const pathname = usePathname();
   const [active, setActive] = useState<SectionId>("home");
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -17,6 +19,6 @@ export function useActiveSection() {
       if (element) observer.observe(element);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
   return active;
 }

@@ -1,6 +1,6 @@
 # Lakshith S Lokesh — Interactive Data Lab
 
-Homepage core experience is complete. Phases 1–6 provide the Data Constellation, Project Observatory, About, Technical Journey, Capability Matrix, and Contact / Connection Layer. Case-study routes and final production polish remain; the entire portfolio is not yet complete.
+Homepage core experience is complete. Phases 1–6 provide the Data Constellation, Project Observatory, About, Technical Journey, Capability Matrix, and Contact / Connection Layer. Phase 7 adds six technical case studies. Final production polish remains; the entire portfolio is not yet complete.
 
 ## Stack
 
@@ -89,7 +89,7 @@ Six supplied projects form an editorial index rather than a card grid. AI Smart 
 - The flagship diagram branches from the API into planning orchestration and SQLAlchemy/PostgreSQL persistence; it does not present storage as the last agent step. It is labeled as a conceptual architecture map.
 - Static preview and detail components render on the server and are passed into the small client interaction shell. CSS transitions settle immediately after interaction, honor reduced motion, and use no animation loops or scroll handlers.
 
-No Phase 3 dependencies were added. Missing GitHub/live URLs produce no action; verified external URLs open in a new tab with accessible labels and `noopener noreferrer`. A future internal case-study path is supported by the model but no project routes are created.
+No Phase 3 dependencies were added. Missing GitHub/live URLs produce no action; verified external URLs open in a new tab with accessible labels and `noopener noreferrer`. The Phase 3 model reserved internal case-study paths; Phase 7 now supplies all six routes.
 
 ## Phase 4: About + Learning Trajectory
 
@@ -127,6 +127,30 @@ Homepage core experience is complete. Contact closes the narrative with an edito
 - Mobile stacks the composition, simplifies the motif, wraps route values, and allows footer links to wrap. Links have 44px minimum targets, visible focus, descriptive external labels, safe new-tab attributes, and associated context. Reduced motion removes hover movement/transitions and uses the existing native-scroll override.
 - No form, backend, copy-email control, availability claims, social embeds, new dependencies, or Anime.js were introduced.
 
+## Phase 7: Project case studies
+
+All six projects now have statically generated case-study pages, using `src/app/projects/[slug]/page.tsx`, `generateStaticParams`, and `notFound()` for unknown slugs. The route resolver derives slugs from the canonical `caseStudy` paths in `src/data/projects.ts`. Project titles, classifications, technology lists, feature lists, flagship state, and external URLs stay in that existing source.
+
+| Project                          | Route                                    | Depth   |
+| -------------------------------- | ---------------------------------------- | ------- |
+| AI Smart Travel Planner          | `/projects/ai-smart-travel-planner`      | Deep    |
+| AutoInsight                      | `/projects/autoinsight`                  | Deep    |
+| Job Market Analytics Portal      | `/projects/job-market-analytics`         | Deep    |
+| Career Recommendation System     | `/projects/career-recommendation-system` | Compact |
+| Commerce Data Insights Dashboard | `/projects/commerce-data-insights`       | Compact |
+| Student Score Predictor          | `/projects/student-score-predictor`      | Compact |
+
+- `src/types/case-study.ts` and `src/data/case-studies.ts` hold typed editorial details keyed by project ID: overview, approach, workflow, optional architecture, notes, outcome, reflection, and optional media. Deep studies add responsibility maps and a small section index; compact studies retain the complete purpose, workflow, features, stack, notes, and outcome sequence without filler architecture.
+- Travel Planner separates interface, application API, planning orchestration, persistence, and external AI services. Its workflow runs from preferences to itinerary review/save/export. The diagram is explicitly a responsibility map, not an unverified request trace. Database access is represented separately from AI services.
+- AutoInsight follows uploaded data through profiling, quality/exploration, ML guidance, and reporting. Recommendations are not described as automatic model training. Job Market Analytics uses the verified employment, role, skill, and market lenses; no unrecorded framework, ingestion service, scraper, or real-time data source is assigned.
+- `TechnicalFlow`, `SystemMap`, and `ProjectLinks` are reusable server components. Architecture is semantic HTML with thin CSS rules, endpoint marks, and text explaining connections. Mobile workflows reflow vertically. Existing `ProjectVisual` illustrations are reused and remain explicitly illustrative, not measured outputs.
+- No real project screenshots or verified project GitHub/live URLs were found. External actions are omitted even where the project record says a live application exists. `ProjectMedia` supports future verified images with alt text, intrinsic dimensions, captions, and Next.js Image rendering. No fake screenshots or metrics are added.
+- Technology names come from project records; general tool roles reuse the Skills data. AutoInsight’s Scikit-learn role is specifically model guidance. No additional technology is inferred for Job Market Analytics.
+- Every homepage project exposes View Case Study alongside its existing expandable notes. Header/footer actions return to Selected Work; Previous/Next project links wrap across the six projects. Global navigation uses homepage-qualified anchors and Next.js Link; the active-section observer reconnects when returning to the homepage.
+- Metadata uses each project’s title and description for the document title, Open Graph, and Twitter summary. Canonicals and social images remain omitted until a public domain and verified assets exist.
+- Case studies are server rendered, with semantic articles/headings, accessible section links, text alternatives to diagrams, safe external links, and visible keyboard focus. No diagram animation or page-transition framework is introduced. Existing reduced-motion scrolling behavior is preserved.
+- No dependencies were added. The homepage layout, project descriptions, technologies, and feature records remain intact apart from case-study route integration.
+
 ## Future development
 
-Phase 7 remains deferred. Add verified project links and real screenshots, and develop full case-study routes only when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.
+Phase 8 remains deferred until explicitly requested. Final production polish, verified project links/screenshots, canonical URLs, sitemap, and social imagery remain future work. No new backend, custom cursor, theme toggle, or heavy visualization dependencies are implemented.

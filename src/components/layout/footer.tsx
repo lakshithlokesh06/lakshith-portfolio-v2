@@ -1,4 +1,5 @@
 import { ArrowUp } from "lucide-react";
+import Link from "next/link";
 import { portfolio } from "@/data/portfolio";
 import { SocialLinks } from "@/components/ui/social-links";
 export function Footer() {
@@ -10,10 +11,10 @@ export function Footer() {
       </p>
       <div>
         <SocialLinks />
-        <a className="action action-text" href="#home">
+        <Link className="action action-text" href="/#home">
           Back to top
           <ArrowUp size={16} aria-hidden="true" />
-        </a>
+        </Link>
       </div>
     </footer>
   );
