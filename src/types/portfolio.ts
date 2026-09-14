@@ -4,10 +4,6 @@ export interface NavigationItem {
   id: SectionId;
   label: string;
 }
-export interface SocialLink {
-  label: "GitHub" | "LinkedIn";
-  url: `https://${string}` | null;
-}
 export interface Portfolio {
   person: {
     name: string;
@@ -18,5 +14,4 @@ export interface Portfolio {
     introduction: string;
   };
   navigation: NavigationItem[];
-  socials: SocialLink[];
 }

@@ -40,7 +40,7 @@ export function About() {
             </div>
             <div>
               <dt>Location</dt>
-              <dd>{portfolio.person.location}, India</dd>
+              <dd>{portfolio.person.location}</dd>
             </div>
           </dl>
         </aside>

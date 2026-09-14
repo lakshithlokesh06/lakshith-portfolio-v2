@@ -3,7 +3,7 @@ export const portfolio: Portfolio = {
   person: {
     name: "Lakshith S Lokesh",
     initials: "LSL",
-    location: "Bengaluru",
+    location: "Bengaluru, India",
     status: "MSc Data Science",
     disciplines: ["Data Science", "Machine Learning", "Data Analytics"],
     introduction:
@@ -11,21 +11,10 @@ export const portfolio: Portfolio = {
   },
   navigation: [
     { id: "home", label: "Home" },
-    { id: "about", label: "About" },
     { id: "work", label: "Work" },
-    { id: "skills", label: "Skills" },
+    { id: "about", label: "About" },
     { id: "journey", label: "Journey" },
+    { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" },
   ],
-  socials: [
-    { label: "GitHub", url: null },
-    { label: "LinkedIn", url: null },
-  ],
-};
-export const sectionContent = {
-  contact: {
-    index: "05",
-    eyebrow: "Contact",
-    title: "Good work starts with a conversation.",
-  },
 };

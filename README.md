@@ -1,6 +1,6 @@
 # Lakshith S Lokesh — Interactive Data Lab
 
-An actively developed personal portfolio for data science, machine learning, analytics, AI systems, and full-stack technical projects. Phase 5 adds the Technical Ecosystem / Capability Matrix: workflow-based tools linked to recorded project usage. The Data Constellation, Project Observatory, About profile, and Learning Trajectory remain intact. Contact is still a foundation for later development.
+Homepage core experience is complete. Phases 1–6 provide the Data Constellation, Project Observatory, About, Technical Journey, Capability Matrix, and Contact / Connection Layer. Case-study routes and final production polish remain; the entire portfolio is not yet complete.
 
 ## Stack
 
@@ -58,7 +58,7 @@ Small one-time entrance transitions respect reduced-motion preferences. The hero
 
 ## Content and current phase
 
-Edit `src/data/portfolio.ts` to maintain verified content. Social URLs are intentionally `null` and rendered as noninteractive, labeled placeholders. Add verified HTTPS URLs to enable links. Projects are defined in `src/data/projects.ts`; capability definitions live in `src/data/skills.ts` and show workflow roles rather than proficiency. Verified education records now include PUC, BCA, and current MSc study. Add institution names, dates, experience, and contact details only when supplied.
+Edit `src/data/portfolio.ts` to maintain verified content. Contact routes are centralized in `src/data/contact.ts` and reused by Hero, Contact, and Footer. Unverified routes are omitted. Projects are defined in `src/data/projects.ts`; capability definitions live in `src/data/skills.ts` and show workflow roles rather than proficiency. Verified education records now include PUC, BCA, and current MSc study. Add institution names, dates, experience, and contact details only when supplied.
 
 Phase 1 includes the application shell, responsive navigation, initial hero, reusable styles and motion, and structural sections for Work, About, Skills, Journey, and Contact. No fabricated projects, statistics, employment, awards, or social links are included.
 
@@ -72,7 +72,7 @@ Phase 1 includes the application shell, responsive navigation, initial hero, reu
 - The proximity hook batches pointer events into at most one animation frame, reads one field rectangle, and updates DOM attributes only when the nearest node changes. It has no per-frame React state, physics, node drift, or idle animation loop. All listeners and pending frames are cleaned up.
 - Reduced motion disables the entrance, edge drawing, and proximity effect while retaining selection. The server-rendered graph and initial description remain visible without JavaScript; interactive selection requires JavaScript.
 
-No dependencies were added for Phase 2. The existing CTA destinations and safe social-link placeholders are preserved.
+No dependencies were added for Phase 2. The existing CTA destinations and safe social-link placeholders were preserved in Phase 2; verified routes replace those placeholders in Phase 6.
 
 ## Phase 3: Project Observatory
 
@@ -93,7 +93,7 @@ No Phase 3 dependencies were added. Missing GitHub/live URLs produce no action; 
 
 ## Phase 4: About + Learning Trajectory
 
-About uses an asymmetric narrative and supporting profile facts, an understated academic strip, and a technical statement leading directly into Journey. Skills follows Journey as an unchanged placeholder. The text describes a postgraduate student and practical project work, with no employment or expertise claims.
+About uses an asymmetric narrative and supporting profile facts, an understated academic strip, and a technical statement leading directly into Journey. Skills follows Journey; its Phase 4 placeholder was replaced by the Phase 5 Capability Matrix. The text describes a postgraduate student and practical project work, with no employment or expertise claims.
 
 - `src/data/education.ts` is the shared typed source for PUC, BCA, and MSc facts. PUC is CSBA at St. Joseph’s Pre-University College, 2021–2023; its four subjects are preserved. BCA Data Analytics at Jain includes only the supplied **8.172 CGPA**, without conversions or an invented date range. MSc Data Science at Chanakya University has the duration **2026–2028** and status **Current**.
 - `src/data/profile.ts` contains the editorial narrative and references education records. `src/data/journey.ts` defines six conceptual stages, transitions, focus areas, education IDs, project IDs, and display positions. The path is a learning narrative; undated project stages may overlap and are not represented as a dated chronology.
@@ -114,6 +114,19 @@ The Capability Matrix presents 19 supported tools as part of Data, Analyze, Mode
 - Mobile uses a two-row stage selector, two-column grouped tool lists, and stacked context. Technical items and stage buttons meet 44px targets. Pressed states, focus outlines, polite selection announcements, and a link into the selected context support keyboard use.
 - Reduced motion removes connector drawing and CSS transitions; filtering and selection remain intact. There are no per-frame listeners, idle loops, canvas, logos, chart packages, or new dependencies. The existing Framer Motion installation remains unchanged; Anime.js is not added.
 
+## Phase 6: Contact / Connection Layer
+
+Homepage core experience is complete. Contact closes the narrative with an editorial headline, shared academic/location metadata, a direct GitHub route, discussion areas, and a restrained closing statement.
+
+- `src/types/contact.ts` supports email, LinkedIn, GitHub, and resume routes. `src/data/contact.ts` is the canonical source for route values, URLs, and descriptions. GitHub is verified by this repository’s origin remote (`lakshithlokesh06`). No verified email, LinkedIn URL, or resume asset was found; those actions are omitted. No private Git author email is used.
+- `src/components/contact/connection-layer.tsx` renders a small decorative SVG whose three lines converge on a named endpoint. Hover/focus on a route emphasizes the lines and arrow using CSS. URLs, descriptions, and normal link actions remain visible without interaction. No new client-side state or event listeners are needed.
+- Contact reuses the shared education record: MSc Data Science, Chanakya University, 2026–2028, Current. Location is centralized as Bengaluru, India; About consumes it without appending a duplicate country.
+- Footer includes the current year, name, concise positioning, canonical social links, and a native Back to top anchor. The year is evaluated when the page is rendered during production builds; rebuild at year rollover for this static site.
+- Navigation follows Home → Work → About → Journey → Skills → Contact. The unnumbered Hero and existing editorial sequence 01 Work, 02 About, 03 Journey, 04 Skills, 05 Contact are preserved; constellation FIELD / 01 remains its own diagram label.
+- Contact retains the shared heading/entrance system. Its final statement flows directly into the compact footer without an extra section-sized bottom gap. Earlier section spacing and motion remain intact.
+- Mobile stacks the composition, simplifies the motif, wraps route values, and allows footer links to wrap. Links have 44px minimum targets, visible focus, descriptive external labels, safe new-tab attributes, and associated context. Reduced motion removes hover movement/transitions and uses the existing native-scroll override.
+- No form, backend, copy-email control, availability claims, social embeds, new dependencies, or Anime.js were introduced.
+
 ## Future development
 
-Phase 6 can expand Contact, add verified project links and real screenshots, and develop full case-study routes when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.
+Phase 7 remains deferred. Add verified project links and real screenshots, and develop full case-study routes only when requested. No custom cursor, theme toggle, backend, or heavy visualization dependencies are implemented. Deployment-specific canonical URLs, sitemap, and social preview imagery should be configured when the public domain and assets are available.

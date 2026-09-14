@@ -1,18 +1,19 @@
 import { ArrowUp } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
-import { ActionLink } from "@/components/ui/action-link";
+import { SocialLinks } from "@/components/ui/social-links";
 export function Footer() {
   return (
     <footer className="footer">
       <p>
-        {portfolio.person.name}
-        <span>Built with curiosity. Developed with care.</span>
+        © {new Date().getFullYear()} {portfolio.person.name}
+        <span>{portfolio.person.disciplines.join(" · ")}</span>
       </p>
       <div>
-        <span className="eyebrow">Portfolio · In development</span>
-        <ActionLink href="#home" variant="icon" label="Back to top">
-          <ArrowUp size={18} />
-        </ActionLink>
+        <SocialLinks />
+        <a className="action action-text" href="#home">
+          Back to top
+          <ArrowUp size={16} aria-hidden="true" />
+        </a>
       </div>
     </footer>
   );

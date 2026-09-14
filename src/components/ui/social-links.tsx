@@ -1,31 +1,24 @@
 import { ArrowUpRight } from "lucide-react";
-import { portfolio } from "@/data/portfolio";
-import { ActionLink } from "./action-link";
+import { contactRoutes } from "@/data/contact";
 export function SocialLinks() {
   return (
     <div className="social-links">
-      {portfolio.socials.map((social) =>
-        social.url ? (
-          <ActionLink
-            key={social.label}
-            href={social.url}
-            label={`${social.label} (opens in new tab)`}
+      {contactRoutes
+        .filter((route) => route.type === "github" || route.type === "linkedin")
+        .map((route) => (
+          <a
+            key={route.id}
+            className="action action-text"
+            href={route.href}
+            aria-label={`View ${route.label}${route.external ? " (opens in new tab)" : ""}`}
+            {...(route.external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
           >
-            {social.label}
-            <ArrowUpRight size={15} />
-          </ActionLink>
-        ) : (
-          <span
-            key={social.label}
-            className="social-placeholder"
-            aria-label={`${social.label}: link coming soon`}
-          >
-            {social.label}
+            {route.label}
             <ArrowUpRight size={15} aria-hidden="true" />
-            <span className="sr-only"> — link coming soon</span>
-          </span>
-        ),
-      )}
+          </a>
+        ))}
     </div>
   );
 }

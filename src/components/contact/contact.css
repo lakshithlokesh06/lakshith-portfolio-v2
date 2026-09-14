@@ -1,0 +1,228 @@
+.contact-section {
+  padding-bottom: 0;
+}
+.contact-section h2 {
+  max-width: 800px;
+  font-size: clamp(32px, 4.3vw, 59px);
+}
+.contact-composition {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+}
+.contact-context {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.contact-context .eyebrow {
+  color: var(--accent);
+  font-size: 9px;
+  margin-bottom: 12px;
+}
+.contact-context div > p:last-child {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.contact-context div > p:last-child span {
+  color: var(--foreground);
+}
+.connection-layer {
+  min-width: 0;
+}
+.connection-signature {
+  max-width: 440px;
+  margin-bottom: 30px;
+}
+.connection-signature > .eyebrow {
+  font-size: 9px;
+}
+.connection-signature svg {
+  width: 100%;
+  height: 100px;
+  overflow: visible;
+}
+.connection-signature path {
+  stroke: var(--line);
+  transition: stroke 0.25s ease;
+}
+.connection-signature circle {
+  stroke: var(--accent);
+}
+.connection-signature circle:last-child {
+  fill: var(--accent);
+}
+.connection-name {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 12px;
+}
+.connection-name > span {
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.connection-layer:has(.contact-route:hover) .connection-signature path,
+.connection-layer:has(.contact-route:focus-visible) .connection-signature path {
+  stroke: var(--accent);
+}
+.contact-route {
+  display: block;
+  padding: 22px 0;
+  min-height: 44px;
+  border-block: 1px solid var(--line);
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+.contact-route + .contact-route {
+  border-top: 0;
+}
+.route-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: var(--accent);
+}
+.route-label > span:first-child {
+  color: var(--muted);
+}
+.route-arrow {
+  margin-left: auto;
+  font-size: 22px;
+  transition: transform 0.2s;
+}
+.route-value {
+  display: block;
+  font-size: clamp(16px, 1.8vw, 24px);
+  margin: 14px 0 10px;
+  overflow-wrap: anywhere;
+}
+.route-description {
+  display: block;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.contact-route:hover,
+.contact-route:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.contact-route:hover .route-arrow,
+.contact-route:focus-visible .route-arrow {
+  transform: translate(2px, -2px);
+}
+.contact-route:focus-visible {
+  outline-offset: 6px;
+}
+.contact-discussion {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  padding: 40px 0;
+  align-items: baseline;
+}
+.contact-discussion > p {
+  font-size: 9px;
+}
+.contact-discussion ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-discussion li {
+  font-size: 12px;
+  color: var(--muted);
+}
+.contact-closing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 28px 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.contact-closing > span {
+  color: var(--accent);
+  font-size: 24px;
+}
+.footer {
+  flex-wrap: wrap;
+}
+.footer > div {
+  flex-wrap: wrap;
+}
+.footer .action {
+  min-height: 44px;
+}
+@media (max-width: 899px) {
+  .contact-composition,
+  .contact-discussion {
+    grid-template-columns: 1fr 1.6fr;
+    gap: 32px;
+  }
+}
+@media (max-width: 599px) {
+  .contact-composition {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    padding-top: 28px;
+  }
+  .contact-context {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 20px;
+  }
+  .contact-context div > p:last-child {
+    font-size: 12px;
+  }
+  .connection-signature svg {
+    height: 70px;
+  }
+  .connection-signature {
+    margin-bottom: 25px;
+  }
+  .route-value {
+    font-size: 18px;
+  }
+  .contact-discussion {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding-block: 30px;
+  }
+  .contact-discussion ul {
+    gap: 10px 18px;
+  }
+  .contact-closing {
+    font-size: 12px;
+  }
+  .footer > div {
+    gap: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-route,
+  .route-arrow,
+  .connection-signature path {
+    transition: none;
+  }
+  .contact-route:hover .route-arrow,
+  .contact-route:focus-visible .route-arrow {
+    transform: none;
+  }
+}
